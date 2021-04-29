@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Domain", "0 - Domain", "{92A4BEC5-EF27-4201-8125-E5DE6BDEBFD6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RallyHolder.Domain", "RallyHolder.Domain\RallyHolder.Domain.csproj", "{258722E4-2B48-4C2F-A5CB-B4F2EA337A66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RallyHolder.Domain", "RallyHolder.Domain\RallyHolder.Domain.csproj", "{258722E4-2B48-4C2F-A5CB-B4F2EA337A66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RallyHolder.Domain.Tests", "RallyHolder.Domain.Tests\RallyHolder.Domain.Tests.csproj", "{7B4BD38B-2A30-462E-AAB6-6C3A47979C18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RallyHolder.Domain.Tests", "RallyHolder.Domain.Tests\RallyHolder.Domain.Tests.csproj", "{7B4BD38B-2A30-462E-AAB6-6C3A47979C18}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

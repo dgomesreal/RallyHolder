@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RallyHolder.Domain.Entities
 {
@@ -12,6 +9,22 @@ namespace RallyHolder.Domain.Entities
         public string Name { get; set; }
         public DateTime BeginningDate { get; set; }
         public DateTime? EndDate { get; set; }
-        public ICollection<Team> Teams { get; set; }
+        public virtual ICollection<Team> Teams { get; set; }
+        public Season()
+        {
+            Teams = new List<Team>();
+        }
+        public void AddTeam(Team team)
+        {
+            //conditions
+            if(team != null)
+            {
+                if (!string.IsNullOrEmpty(team.Name))
+                {
+                    Teams.Add(team);
+                }
+                
+            }
+        }
     }
 }
