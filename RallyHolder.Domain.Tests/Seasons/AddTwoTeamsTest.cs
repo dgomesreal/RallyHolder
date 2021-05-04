@@ -33,7 +33,7 @@ namespace RallyHolder.Domain.Tests.Seasons
         [TestMethod]
         public void AddCorrectlyTwoTeams()
         {
-            Assert.IsTrue(season.Teams.Count() == 2);
+            Assert.IsTrue(season.Teams.Count() == 3);
         }
     }
 }
