@@ -10,6 +10,7 @@ namespace RallyHolder.Domain.Tests.Seasons
         Season season;
         Team team1;
         Team team2;
+        Team team3;
 
         [TestInitialize]
         public void Initialize()
@@ -26,14 +27,17 @@ namespace RallyHolder.Domain.Tests.Seasons
             team2.Id = 2;
             team2.Name = "TeamTest2";
 
+            team3 = null;
+
             season.AddTeam(team1);
             season.AddTeam(team2);
+            season.AddTeam(team3);
         }
 
         [TestMethod]
         public void AddCorrectlyTwoTeams()
         {
-            Assert.IsTrue(season.Teams.Count() == 3);
+            Assert.IsTrue(season.Teams.Count == 3);
         }
     }
 }
