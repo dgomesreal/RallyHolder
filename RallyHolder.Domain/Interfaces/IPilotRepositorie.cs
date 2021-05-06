@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace RallyHolder.Domain.Interfaces
 {
-    interface Interface1
+    public interface IPilotRepositorie
     {
+
     }
 }

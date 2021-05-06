@@ -9,6 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RallyHolder.Domain", "Rally
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RallyHolder.Domain.Tests", "RallyHolder.Domain.Tests\RallyHolder.Domain.Tests.csproj", "{7B4BD38B-2A30-462E-AAB6-6C3A47979C18}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - WEB", "1 - WEB", "{CDFF9971-965F-4165-8601-EFA483A66FBA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.1 API", "1.1 API", "{ACC2121D-0278-4924-8D4D-BE76C7A4DC37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RallyHolder.API", "RallyHolder.API\RallyHolder.API.csproj", "{85DEE63E-7331-433B-BABA-CC8C3299081C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +29,10 @@ Global
 		{7B4BD38B-2A30-462E-AAB6-6C3A47979C18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B4BD38B-2A30-462E-AAB6-6C3A47979C18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B4BD38B-2A30-462E-AAB6-6C3A47979C18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85DEE63E-7331-433B-BABA-CC8C3299081C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85DEE63E-7331-433B-BABA-CC8C3299081C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85DEE63E-7331-433B-BABA-CC8C3299081C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85DEE63E-7331-433B-BABA-CC8C3299081C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,6 +40,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{258722E4-2B48-4C2F-A5CB-B4F2EA337A66} = {92A4BEC5-EF27-4201-8125-E5DE6BDEBFD6}
 		{7B4BD38B-2A30-462E-AAB6-6C3A47979C18} = {92A4BEC5-EF27-4201-8125-E5DE6BDEBFD6}
+		{ACC2121D-0278-4924-8D4D-BE76C7A4DC37} = {CDFF9971-965F-4165-8601-EFA483A66FBA}
+		{85DEE63E-7331-433B-BABA-CC8C3299081C} = {ACC2121D-0278-4924-8D4D-BE76C7A4DC37}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CE1D3EA5-4505-4864-A7C9-BDB3AAE1FCFD}

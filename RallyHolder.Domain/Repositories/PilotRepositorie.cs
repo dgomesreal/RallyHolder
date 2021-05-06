@@ -2,10 +2,11 @@
 using RallyHolder.Domain.Entities;
 using System.Linq;
 using System.Collections.Generic;
+using RallyHolder.Domain.Interfaces;
 
 namespace RallyHolder.Domain.Repositories
 {
-    public class PilotRepositorie
+    public class PilotRepositorie : IPilotRepositorie
     {
         private readonly RallyDbContext _rallyDbContext;
         public PilotRepositorie(RallyDbContext rallyDbContext)
