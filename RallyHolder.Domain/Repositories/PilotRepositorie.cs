@@ -14,13 +14,13 @@ namespace RallyHolder.Domain.Repositories
             _rallyDbContext = rallyDbContext;
         }
 
-        public void AddPilot(Pilot pilot)
+        public void Add(Pilot pilot)
         {
             _rallyDbContext.Pilots.Add(pilot);
             _rallyDbContext.SaveChanges();
         }
 
-        public IEnumerable<Pilot> GetAllPilots()
+        public IEnumerable<Pilot> GetAll()
         {
             return _rallyDbContext.Pilots.ToList();
         }

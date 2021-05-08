@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using RallyHolder.Domain.Entities;
 using RallyHolder.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,14 @@ namespace RallyHolder.API.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            return Ok("Successfully returned");
+            return Ok(_pilotRepositorie.GetAll());
+        }
+
+        [HttpPost]
+        public IActionResult AddPilot([FromBody]Pilot pilot)
+        {
+            _pilotRepositorie.Add(pilot);
+            return Ok();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RallyHolder.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,9 @@ namespace RallyHolder.Domain.Interfaces
 {
     public interface IPilotRepositorie
     {
+        void Add(Pilot pilot);
+
+        IEnumerable<Pilot> GetAll();
 
     }
 }
