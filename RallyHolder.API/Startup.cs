@@ -30,9 +30,13 @@ namespace RallyHolder.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<RallyDbContext>(opt => opt.UseInMemoryDatabase("RallyDB"),ServiceLifetime.Scoped, ServiceLifetime.Scoped);
-            services.AddControllers();
+
+            services.AddControllers()
+                    .AddNewtonsoftJson();                    
 
             services.AddScoped<IPilotRepositorie, PilotRepositorie>();
+
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             services.AddSwaggerGen(c =>
             {

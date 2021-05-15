@@ -43,8 +43,15 @@ namespace RallyHolder.Domain.Repositories
 
         public void Update(Pilot pilot)
         {
-            _rallyDbContext.Attach(pilot);
-            _rallyDbContext.Entry(pilot).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            if (_rallyDbContext.Entry(pilot).State == Microsoft.EntityFrameworkCore.EntityState.Detached)
+            {
+                _rallyDbContext.Attach(pilot);
+                _rallyDbContext.Entry(pilot).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            }
+            else
+            {
+                _rallyDbContext.Update(pilot);
+            }
             _rallyDbContext.SaveChanges();
         }
     }

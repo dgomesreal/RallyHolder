@@ -13,5 +13,12 @@ namespace RallyHolder.Domain.Entities
         public int TeamId { get; set; }
         public virtual Team Team { get; set; } //Not recommended for big projects
 
+        public bool Validation()
+        {
+            if (string.IsNullOrEmpty(Name))
+                return false;
+
+            return true;
+        }
     }
 }
