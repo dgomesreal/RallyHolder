@@ -1,16 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RallyHolder.Domain.Entities
 {
     public class Telemetry
     {
         public int Id { get; set; }
-        public int SeasonId { get; set; }
-        public int PilotId { get; set; }
+        //public int SeasonId { get; set; }
+        //public int PilotId { get; set; }
+        public int TeamId { get; set; }
         public DateTime Date { get; set; }
         public TimeSpan Hour { get; set; }
         public decimal Latidude { get; set; }

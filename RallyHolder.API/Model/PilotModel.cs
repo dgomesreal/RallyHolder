@@ -9,12 +9,12 @@ namespace RallyHolder.API.Model
 
         [Required(ErrorMessage = "Name is mandatory")]
         [MinLength(5, ErrorMessage = "Name must be longer then 5 characters")]
-        [MaxLength(50, ErrorMessage = "Name cannot be longer then 5 characters")]
+        [MaxLength(50, ErrorMessage = "Name cannot be longer then 50 characters")]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Surname is mandatory")]
         [MinLength(5, ErrorMessage = "Surname must be longer then 5 characters")]
-        [MaxLength(50, ErrorMessage = "Surname cannot be longer then 5 characters")]
+        [MaxLength(50, ErrorMessage = "Surname cannot be longer then 50 characters")]
         public string Surname { get; set; }
         public int TeamId { get; set; }
 

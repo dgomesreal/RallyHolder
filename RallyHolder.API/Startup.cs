@@ -1,19 +1,14 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using RallyHolder.Domain.Context;
 using RallyHolder.Domain.Interfaces;
 using RallyHolder.Domain.Repositories;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace RallyHolder.API
 {
@@ -35,6 +30,8 @@ namespace RallyHolder.API
                     .AddNewtonsoftJson();                    
 
             services.AddScoped<IPilotRepositorie, PilotRepositorie>();
+            services.AddScoped<ITelemetryRepositorie, TelemetryRepositorie>();
+            services.AddScoped<ITeamRepositorie, TeamRepositorie>();
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

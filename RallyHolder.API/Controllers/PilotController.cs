@@ -1,14 +1,11 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using RallyHolder.API.Model;
 using RallyHolder.Domain.Entities;
 using RallyHolder.Domain.Interfaces;
-using RallyHolder.Domain.Repositories;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace RallyHolder.API.Controllers
 {
@@ -18,10 +15,12 @@ namespace RallyHolder.API.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IPilotRepositorie _pilotRepositorie;
-        public PilotController(IPilotRepositorie pilotRepositorie, IMapper mapper)
+        private readonly ILogger<PilotController> _logger;
+        public PilotController(IPilotRepositorie pilotRepositorie, IMapper mapper, ILogger<PilotController> logger)
         {
             _pilotRepositorie = pilotRepositorie;
             _mapper = mapper;
+            _logger = logger;
         }
 
         //[HttpGet]
@@ -61,7 +60,7 @@ namespace RallyHolder.API.Controllers
             }
             catch (Exception ex)
             {
-                //_logger.Info(ex.ToString());
+                _logger.LogError(ex.ToString());
                 return StatusCode(500, "Ocorreu um erro interno no sistema!");
             }
         }
@@ -71,11 +70,17 @@ namespace RallyHolder.API.Controllers
         {
             try
             {
+                _logger.LogInformation("Mapping Pilot Model");
                 var pilot = _mapper.Map<Pilot>(pilotModel);
 
+                _logger.LogInformation($"Pilot ID{pilot.Id} Checking if it Exists");
                 if (_pilotRepositorie.Exist(pilot.Id))
+                {
+                    _logger.LogWarning($"Pilot ID{pilot.Id} Exists");
                     return StatusCode(409, "Pilot Already Exists");
+                }
 
+                _logger.LogInformation("Adding Pilot");
                 _pilotRepositorie.Add(pilot);
 
                 var pilotModelReturn = _mapper.Map<PilotModel>(pilot);
@@ -83,7 +88,7 @@ namespace RallyHolder.API.Controllers
             }
             catch (Exception ex)
             {
-                //_logger.Info(ex.ToString());
+                _logger.LogError(ex.ToString());
                 return StatusCode(500, "Ocorreu um erro interno no sistema!");
             }
 
@@ -104,7 +109,7 @@ namespace RallyHolder.API.Controllers
             }
             catch (Exception ex)
             {   
-                //_logger.Info(ex.ToString());
+                _logger.LogError(ex.ToString());
                 return StatusCode(500, "Ocorreu um erro interno no sistema!");
             }
 
@@ -130,10 +135,9 @@ namespace RallyHolder.API.Controllers
             }
             catch (Exception ex)
             {
-                //_logger.Info(ex.ToString());
+                _logger.LogError(ex.ToString());
                 return StatusCode(500, "Ocorreu um erro interno no sistema!");
             }
-            return Ok();
         }
 
         [HttpDelete("{id}")]
@@ -141,15 +145,19 @@ namespace RallyHolder.API.Controllers
         {
             try
             {
+                _logger.LogInformation($"Checking if {id} Exists");
                 var pilot = _pilotRepositorie.Get(id);
-                if (pilot == null)
+                if (pilot == null) {
+                    _logger.LogWarning($"{id} NOT Exists");
                     return NotFound();
+                }
+                _logger.LogInformation($"{id} Deleted");
                 _pilotRepositorie.Delete(pilot);
                 return NoContent();
             }
             catch (Exception ex)
             {
-                //_logger.Info(ex.ToString());
+                _logger.LogError(ex.ToString());
                 return StatusCode(500, "Ocorreu um erro interno no sistema!");
             }
 

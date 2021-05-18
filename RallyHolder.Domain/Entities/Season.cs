@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace RallyHolder.Domain.Entities
 {
@@ -17,14 +18,19 @@ namespace RallyHolder.Domain.Entities
         public void AddTeam(Team team)
         {
             //conditions
-            if(team != null)
+            if(team != null && team.Validate())
             {
-                if (!string.IsNullOrEmpty(team.Name))
+                if (!Teams.Any(e => e.Id == team.Id))
                 {
                     Teams.Add(team);
                 }
                 
             }
         }
+        public Team GetById(int id)
+        {
+            return Teams.FirstOrDefault(e => e.Id == id);
+        }
+
     }
 }

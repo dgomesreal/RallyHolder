@@ -1,10 +1,6 @@
 ﻿using AutoMapper;
 using RallyHolder.API.Model;
 using RallyHolder.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace RallyHolder.API.AutoMapper
 {
